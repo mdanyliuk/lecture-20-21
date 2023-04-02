@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<nav th:fragment="nav" class="navbar navbar-expand navbar-dark bg-primary">
+    <div class="navbar-nav w-100">
+        <a class="navbar-brand text-color" href="/">Book Reader App</a>
+    </div>
+    <a th:if="${!session.containsKey('username') or session.username==null}"
+       class="navbar-brand text-color" th:href="@{/login}">Log in</a>
+    <a th:if="${session.containsKey('username') and session.username!=null}"
+       class="navbar-brand text-color" th:href="@{/logout}">Log out</a>
+</nav>
+</body>
+</html>

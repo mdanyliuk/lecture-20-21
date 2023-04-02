@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mongo_db:
+    image: mongo:4.4.3
+    container_name: mongo
+    restart: always
+    ports:
+      - "27001:27017"
+    networks:
+      - app-network
+  consul:
+    image: consul:latest
+    container_name: consul
+    ports:
+      - "8500:8500"
+    command: consul agent -server -bootstrap -ui -data-dir /consul/data -client=0.0.0.0
+    volumes:
+      - ./config-data3:/consul/data
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

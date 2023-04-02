@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book Reader App</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div>
+    <div th:insert="~{fragments/nav :: nav}"></div>
+
+    <div class="container" style="padding-top: 20vh; display: flex; flex-direction: column; align-items: center;">
+        <h3><span th:text=" ${book.getAuthor()}"></span></h3>
+        <br>
+        <h4><span th:text=" ${book.getName()}"></span></h4>
+        <br>
+        <p><span th:text=" ${book.getContent()}"></span></p>
+    </div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
